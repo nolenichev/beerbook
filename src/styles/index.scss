@@ -1,0 +1,95 @@
+@import 'colors.scss';
+
+* {
+    font-family: serif;
+}
+
+body {
+    background-color: $bg-color;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+}
+
+.mt10 {
+    margin-top: 10px;
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: $main-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    
+    h1,
+    button {
+        color: #fff;
+        font-size: 20px !important;
+        padding: 15px;
+
+        span {
+            margin-left: 10px;
+        }
+    }
+
+    button:hover {
+        background-color: rgba($color: #000000, $alpha: .1);
+    }
+}
+
+.nav {
+    width: 200px;
+
+    div {
+        padding: 10px 15px;
+        cursor: pointer;
+        background-color: $second-color;
+        color: #fff;
+        margin-bottom: 10px;
+        border-radius: 7px;
+        vertical-align: center;
+        font-size: 18px;
+
+        span {
+            margin-left: 10px;
+        }
+
+        &:hover {
+            background-color: $main-color;
+            color: #fff;
+        }
+    }
+}
+
+.profile-page {
+    margin-left: 10px;
+
+    img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 8px 8px 0 0;
+        z-index: 0;
+        
+    }
+
+    div {
+        background-color: $second-color;
+        border-radius: 0 0 8px 8px;
+        text-align: center;
+        color: #fff;
+        font: 22px bold;
+        padding: 20px;
+        z-index: 2;
+    }
+}
