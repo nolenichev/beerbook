@@ -1,0 +1,21 @@
+@import './../../styles/colors.scss';
+
+.post {
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 8px;
+    background-color: $second-color;
+    color: #fff;
+    padding: 15px;
+
+    h1 {
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 10px;
+    }
+
+    img {
+        height: 200px;
+        margin-bottom: 10px;
+    }
+}
