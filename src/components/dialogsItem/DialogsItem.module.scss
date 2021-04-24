@@ -1,0 +1,29 @@
+@import '../../styles/colors.scss';
+
+
+.dialoge {
+    padding: 10px 20px;
+    display: block;
+    width: 250px;
+
+    h3 {
+        font-size: 16px;
+        font-weight: 500;
+        margin-bottom: 5px;
+    }
+
+    h4 {
+        font-weight: 14;
+        font-weight: 300;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    &:hover {
+        background-color: $dark-gray;
+    }
+}
+
+.active {
+    background-color: $dark-gray;
+}

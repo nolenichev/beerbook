@@ -3,7 +3,7 @@
 .navbar {
     width: 200px;
 
-    div, a {
+    a {
         display: block;
         padding: 10px 15px;
         cursor: pointer;
@@ -18,8 +18,13 @@
         }
 
         &:hover {
-            background-color: $main-color;
+            background-color: $dark-gray;
             color: #fff;
         }
+    }
+
+    .active {
+        background-color: $dark-gray;
+        color: #fff;
     }
 }

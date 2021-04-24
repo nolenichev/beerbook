@@ -1,0 +1,54 @@
+@import '../../styles/colors.scss';
+
+.dialogWindow {
+    height: calc(100vh - 74px);
+    position: relative;
+    width: 100%;
+    overflow-y: scroll;
+    border-radius: 0 8px 8px 0;
+
+    .dialogHeader {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 15px;
+        border-bottom: 1px solid $dark-gray;
+        background-color: $second-color;
+    }
+
+    .dialogField {
+        height: 100%;
+        padding: 60px 10px 70px 10px;
+    }
+
+    .inputBox {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 15px;
+        border-top: 1px solid $dark-gray;
+        background-color: $second-color;
+
+        input {
+            background-color: $dark-gray;
+            padding: 5px 60px 5px 15px;
+            border-radius: 8px;
+            width: 100%;
+        }
+
+        button {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+            padding: 10px;
+            
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+}
