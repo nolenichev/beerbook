@@ -5,7 +5,13 @@ import { Post } from '../../components/post/Post'
 
 export const Profile = (props) => {
 	let postsElements = props.state.posts.map((post) => (
-		<Post name={post.name} text={post.text} likesCount={post.likesCount} img={post.img} key={post.id} />
+		<Post
+			name={post.name}
+			text={post.text}
+			likesCount={post.likesCount}
+			img={post.img}
+			key={post.id}
+		/>
 	))
 
 	return (
@@ -13,7 +19,7 @@ export const Profile = (props) => {
 			<img src={bg} alt="background" />
 			<header>
 				<h1>Nikita Olenichev</h1>
-				<PostForm />
+				<PostForm state={props.state} dispatch={props.dispatch} />
 			</header>
 			{postsElements}
 		</div>

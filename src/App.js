@@ -17,7 +17,12 @@ function App(props) {
 					<Navbar />
 					<Route
 						path="/profile"
-						render={() => <Profile state={props.state.profilePage} />}
+						render={() => (
+							<Profile
+								state={props.state.profilePage}
+								dispatch={props.dispatch}
+							/>
+						)}
 					/>
 					<main className="main-section">
 						<Route
@@ -25,6 +30,7 @@ function App(props) {
 							render={() => (
 								<Dialogs
 									state={props.state.dialogsPage}
+									dispatch={props.dispatch}
 								/>
 							)}
 						/>

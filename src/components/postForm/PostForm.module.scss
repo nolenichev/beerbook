@@ -7,23 +7,20 @@
     textarea {
         width: 100%;
         resize: none;
-        background-color: $light-gray;
-        color: $second-color;
+        background-color: $dark-gray;
+        color: #fff;
         padding: 10px 100px 10px 10px;
         border-radius: 15px;
         font-size: 17px;
-
-        &::placeholder {
-            color: rgb(83, 83, 83);
-        }
     }
 
     button {
         position: absolute;
         right: 10px;
-        top: 10px;
+        top: 50%;
         margin-left: 10px;
         color: #fff;
+        transform: translateY(-50%);
         background-color: $main-color;
         border-radius: 15px;
         font-size: 15px;

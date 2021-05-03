@@ -21,6 +21,8 @@
     .dialogField {
         height: 100%;
         padding: 60px 10px 70px 10px;
+        display: flex;
+        flex-direction: column;
     }
 
     .inputBox {
@@ -33,22 +35,22 @@
         border-top: 1px solid $dark-gray;
         background-color: $second-color;
 
-        input {
+        textarea {
             background-color: $dark-gray;
             padding: 5px 60px 5px 15px;
-            border-radius: 8px;
+            border-radius: 10px;
             width: 100%;
+            resize: none;
+            color: #fff;
         }
 
         button {
             position: absolute;
-            bottom: 10px;
+            top: 50%;
+            transform: translateY(-50%);
             right: 15px;
             padding: 10px;
-            
-            &:hover {
-                color: #fff;
-            }
+            color: #fff;
         }
     }
 }

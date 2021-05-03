@@ -18,7 +18,7 @@
         }
 
         &:hover {
-            background-color: $dark-gray;
+            background-color: #4d4d4d;
             color: #fff;
         }
     }
@@ -26,5 +26,9 @@
     .active {
         background-color: $dark-gray;
         color: #fff;
+        
+        &:hover {
+            background-color: $dark-gray;
+        }
     }
 }

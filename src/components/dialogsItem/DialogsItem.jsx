@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import style from './DialogsItem.module.scss'
 
 export const DialogsItem = (props) => {
-	let path = '/dialogs/id' + props.id
+	let path = '/dialogs/id' + props.userId
 
 	return (
 		<NavLink
@@ -11,8 +11,11 @@ export const DialogsItem = (props) => {
 			className={style.dialoge}
 			activeClassName={style.active}
 		>
-			<h3>{props.name}</h3>
-			<h4>How is it going?</h4>
+			<img src={props.avatar} alt="profile-avatar" />
+			<div>
+				<h3>{props.name}</h3>
+				<h4>How is it going?</h4>
+			</div>
 		</NavLink>
 	)
 }

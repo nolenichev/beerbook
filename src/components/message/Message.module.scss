@@ -1,10 +1,17 @@
 @import '../../styles/colors.scss';
 
 .message {
-    min-width: 10px;
     padding: 10px 15px;
     background-color: $main-color;
     border-radius: 12px;
+    width: auto;
+    word-wrap: break-word;
+    max-width: 50%;
+    align-self: flex-end;
+}
+
+.partnerMessage {
+    align-self: flex-start;
 }
 
 .message + .message {
