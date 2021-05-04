@@ -20,4 +20,9 @@
             font: 22px bold;
         }
     }
+
+    .posts {
+        display: flex;
+        flex-direction: column-reverse;
+    }
 }

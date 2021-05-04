@@ -1,22 +1,16 @@
 import React from 'react'
 import postFormStyle from './PostForm.module.scss'
-import {
-	addPostCreator,
-	updateNewPostTextCreator,
-} from './../../redux/state'
 
-export const PostForm = (props) => {
+const PostForm = (props) => {
 	let newPostElement = React.createRef()
 
-	let addPost = () => {
-		let action = addPostCreator()
-		props.dispatch(action)
+	let onAddPost = () => {
+		props.addPost()
 	}
 
 	const onPostChange = () => {
 		let text = newPostElement.current.value
-		let action = updateNewPostTextCreator(text)
-		props.dispatch(action)
+		props.updateNewPostText(text)
 	}
 
 	return (
@@ -26,12 +20,14 @@ export const PostForm = (props) => {
 				rows="2"
 				placeholder="What's new?"
 				ref={newPostElement}
-				value={props.state.newPostText}
+				value={props.state.profilePage.newPostText}
 				onChange={onPostChange}
 			/>
-			<button onClick={addPost} type="submit">
+			<button onClick={onAddPost} type="submit">
 				Post
 			</button>
 		</div>
 	)
 }
+
+export default PostForm

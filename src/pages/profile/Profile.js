@@ -1,10 +1,10 @@
 import React from 'react'
 import bg from './../../images/bg.jpg'
-import { PostForm } from '../../components/postForm/PostForm'
 import { Post } from '../../components/post/Post'
+import { PostFormContainer } from '../../components/postForm/PostFormContainer'
 
 export const Profile = (props) => {
-	let postsElements = props.state.posts.map((post) => (
+	let postsElements = props.store.getState().profilePage.posts.map((post) => (
 		<Post
 			name={post.name}
 			text={post.text}
@@ -19,9 +19,9 @@ export const Profile = (props) => {
 			<img src={bg} alt="background" />
 			<header>
 				<h1>Nikita Olenichev</h1>
-				<PostForm state={props.state} dispatch={props.dispatch} />
+				<PostFormContainer store={props.store} />
 			</header>
-			{postsElements}
+			<div className="posts">{postsElements}</div>
 		</div>
 	)
 }

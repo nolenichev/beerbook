@@ -1,14 +1,10 @@
 import React from 'react'
 import style from './Dialog.module.scss'
 import { Message } from './../message/Message'
-import {
-	sendMessageCreator,
-	updateNewMessageTextCreator,
-} from '../../redux/state'
 
 const MIN_TEXTAREA_HEIGHT = 30
 
-export const Dialog = (props) => {
+const Dialog = (props) => {
 	let messegesElements = props.state.messages.map((message) => (
 		<Message message={message.message} key={message.id} />
 	))
@@ -22,15 +18,13 @@ export const Dialog = (props) => {
 		)}px`
 	})
 
-	let updateNewMessage = () => {
-		let text = newMessageElement.current.value
-		let action = updateNewMessageTextCreator(text)
-		props.dispatch(action)
+	let updateNewMessage = (event) => {
+		let text = event.target.value
+		props.updateNewMessage(text)
 	}
 
 	let sendMessage = () => {
-		let action = sendMessageCreator()
-		props.dispatch(action)
+		props.sendMessage()
 		newMessageElement.current.style.height = 0
 	}
 
@@ -52,3 +46,5 @@ export const Dialog = (props) => {
 		</div>
 	)
 }
+
+export default Dialog

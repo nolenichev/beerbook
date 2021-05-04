@@ -3,7 +3,7 @@ import style from './DialogsList.module.scss'
 import { DialogsItem } from './../dialogsItem/DialogsItem'
 
 export const DialogsList = (props) => {
-	let dialogsElements = props.dialogs.map((dialog) => (
+	let dialogsElements = props.store.getState().dialogsPage.dialogs.map((dialog) => (
 		<DialogsItem
 			name={dialog.name}
 			key={dialog.id}
