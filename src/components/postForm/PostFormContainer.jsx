@@ -1,26 +1,27 @@
-import React from 'react'
 import PostForm from './PostForm'
 import {
 	addPostCreator,
 	updateNewPostTextCreator,
 } from '../../redux/profileReducer'
+import { connect } from 'react-redux'
 
-export const PostFormContainer = (props) => {
-	let addPost = () => {
-		let action = addPostCreator()
-		props.store.dispatch(action)
+const mapStateToProps = (state) => {
+	return {
+		state: state.profilePage,
 	}
-
-	const updateNewPostText = (text) => {
-		let action = updateNewPostTextCreator(text)
-		props.store.dispatch(action)
-	}
-
-	return (
-		<PostForm
-			updateNewPostText={updateNewPostText}
-			addPost={addPost}
-			state={props.store.getState()}
-		/>
-	)
 }
+
+const mapDispatchToProps = (dispatch) => {
+	return {
+		addPost: () => {
+			dispatch(addPostCreator())
+		},
+		updateNewPostText: (text) => {
+			dispatch(updateNewPostTextCreator(text))
+		},
+	}
+}
+
+const PostFormContainer = connect(mapStateToProps, mapDispatchToProps)(PostForm)
+
+export default PostFormContainer

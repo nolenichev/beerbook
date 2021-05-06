@@ -6,11 +6,7 @@ export const Dialogs = (props) => {
 	return (
 		<section className={s.dialogs}>
 			<DialogsList store={props.store} />
-			<DialogContainer
-				state={props.state}
-				dispatch={props.dispatch}
-				store={props.store}
-			/>
+			<DialogContainer />
 		</section>
 	)
 }

@@ -6,8 +6,7 @@ let initialState = {
 		{
 			id: 1,
 			name: 'Nikita',
-			text:
-				'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
+			text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
 			img:
 				'https://img.freepik.com/free-vector/spring-landscape-scene_52683-56331.jpg?size=626&ext=jpg',
 			likesCount: 10,
@@ -25,8 +24,7 @@ let initialState = {
 			id: 3,
 			name: 'Nikita',
 			img: null,
-			text:
-				'Lorem ipsum, dolor sit amet consectetur adipisicing elit',
+			text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit',
 			likesCount: 5,
 		},
 	],
@@ -34,32 +32,30 @@ let initialState = {
 }
 
 const profileReducer = (state = initialState, action) => {
-	const addPost = () => {
-		if (state.newPostText.length > 0) {
-			let postText = state.newPostText
-			let newPost = {
-				id: 4,
-				name: 'Nikita',
-				img: null,
-				text: postText,
-				likesCount: 0,
-			}
-			state.posts.push(newPost)
-			state.newPostText = ''
-		}
-	}
-
-	const updateNewPostText = (text) => {
-		state.newPostText = text
-	}
-
 	switch (action.type) {
-		case ADD_POST:
-			addPost()
-			return state
 		case UPDATE_NEW_POST_TEXT:
-			updateNewPostText(action.text)
+			return { ...state, newPostText: action.text }
+
+		case ADD_POST:
+			let postText = state.newPostText
+			if (postText.length > 0) {
+				return {
+					...state,
+					newPostText: '',
+					posts: [
+						...state.posts,
+						{
+							id: 4,
+							name: 'Nikita',
+							img: null,
+							text: postText,
+							likesCount: 0,
+						}
+					]
+				}
+			}
 			return state
+
 		default:
 			return state
 	}

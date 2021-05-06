@@ -16,22 +16,12 @@ function App(props) {
 				<Navbar />
 				<Route
 					path="/profile"
-					render={() => (
-						<Profile
-							store={props.store}
-						/>
-					)}
+					render={() => <Profile store={props.store} />}
 				/>
 				<main className="main-section">
 					<Route
 						path="/dialogs"
-						render={() => (
-							<Dialogs
-								state={props.state.dialogsPage}
-								dispatch={props.dispatch}
-								store={props.store}
-							/>
-						)}
+						render={() => <Dialogs store={props.store} />}
 					/>
 					<Route path="/news" component={News} />
 					<Route path="/music" component={Music} />

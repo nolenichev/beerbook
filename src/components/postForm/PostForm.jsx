@@ -1,5 +1,5 @@
 import React from 'react'
-import postFormStyle from './PostForm.module.scss'
+import style from './PostForm.module.scss'
 
 const PostForm = (props) => {
 	let newPostElement = React.createRef()
@@ -14,13 +14,13 @@ const PostForm = (props) => {
 	}
 
 	return (
-		<div className={postFormStyle.form}>
+		<div className={style.form}>
 			<textarea
 				cols="30"
 				rows="2"
 				placeholder="What's new?"
 				ref={newPostElement}
-				value={props.state.profilePage.newPostText}
+				value={props.state.newPostText}
 				onChange={onPostChange}
 			/>
 			<button onClick={onAddPost} type="submit">
