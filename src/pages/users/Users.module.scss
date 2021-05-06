@@ -1,0 +1,27 @@
+@import '../../styles/colors.scss';
+
+.usersPage {
+    padding: 0 20px 20px 20px;
+    overflow-y: scroll;
+    max-height: calc(100vh - 74px);
+
+    header {
+        position: sticky;
+        top: 0;
+        padding: 20px 0 10px 0;
+        background-color: $second-color;
+        
+        input {
+            width: 100%;
+            padding-right: 40px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            color: #fff;
+            position: absolute;
+            right: 5px;
+            top: 24px;
+        }
+    }
+}

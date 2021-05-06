@@ -11,7 +11,7 @@ export const Post = (props) => {
 
 	return (
 		<div className={style.post} key={props.id}>
-			<h1>{props.name}</h1>
+			<h2>{props.name}</h2>
 
 			{isPhotoInPost()}
 

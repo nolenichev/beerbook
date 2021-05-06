@@ -29,3 +29,22 @@ body {
 .mt10 {
     margin-top: 10px;
 }
+
+input, textarea {
+    background-color: $dark-gray;
+    border: none;
+    color: #fff;
+    border-radius: 1em;
+    padding: 5px 15px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: bold;
+}
