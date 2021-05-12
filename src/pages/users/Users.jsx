@@ -2,7 +2,7 @@ import style from './Users.module.scss'
 import { BsSearch } from 'react-icons/bs'
 import UserItemContainer from '../../components/userItem/UserItemContainer'
 
-const Users = (props) => {
+const Users = () => {
 	return (
 		<div className={style.usersPage}>
 			<header>

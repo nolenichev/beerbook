@@ -8,15 +8,13 @@ import { Provider } from 'react-redux'
 
 let rerenderEntireTree = () => {
 	ReactDOM.render(
-		<React.StrictMode>
-			<Provider store={store}>
-				<App
-					store={store}
-					state={store.getState()}
-					dispatch={store.dispatch.bind(store)}
-				/>
-			</Provider>
-		</React.StrictMode>,
+		<Provider store={store}>
+			<App
+				store={store}
+				state={store.getState()}
+				dispatch={store.dispatch.bind(store)}
+			/>
+		</Provider>,
 		document.getElementById('root')
 	)
 }
