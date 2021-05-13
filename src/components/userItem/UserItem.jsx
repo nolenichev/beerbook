@@ -1,6 +1,6 @@
 import React from 'react'
 import style from './UserItem.module.scss'
-import noAvatar from './../../images/noavatar.png'
+import noAvatar from '../../images/noavatar.png'
 
 const UserItem = (props) => {
 	let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -52,10 +52,11 @@ const UserItem = (props) => {
 					</div>
 				)
 			})}
-			
+
 			<div className={style.pagePagination}>
 				{pages.map((page) => (
 					<button
+						key={page}
 						className={
 							props.currentPage === page ? style.selectedPage : ''
 						}

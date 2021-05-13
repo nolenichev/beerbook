@@ -3,13 +3,14 @@
 .usersPage {
     padding: 0 20px 20px 20px;
     overflow-y: scroll;
-    max-height: calc(100vh - 74px);
+    height: calc(100vh - 74px);
 
     header {
         position: sticky;
         top: 0;
         padding: 20px 0 10px 0;
         background-color: $second-color;
+        z-index: 2;
         
         input {
             width: 100%;

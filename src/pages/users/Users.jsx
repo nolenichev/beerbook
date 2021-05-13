@@ -4,7 +4,7 @@ import UserItemContainer from '../../components/userItem/UserItemContainer'
 
 const Users = () => {
 	return (
-		<div className={style.usersPage}>
+		<section className={style.usersPage}>
 			<header>
 				<input type="text" placeholder="Search users" />
 				<button>
@@ -13,7 +13,7 @@ const Users = () => {
                 <h2>Users</h2>
 			</header>
 			<UserItemContainer />
-		</div>
+		</section>
 	)
 }
 
