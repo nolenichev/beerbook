@@ -39,10 +39,10 @@
             color: #fff;
 
             &:hover {
-                border-color: $dark-gray;
+                background-color: $main-color-dark;
             }
         }
-
+        
         .unfollowBtn {
             background-color: $main-color-dark;
         }
@@ -55,7 +55,7 @@
 
 .pagePagination {
     text-align: center;
-    margin-bottom: 10px;
+    margin-top: 10px;
     
     button {
         color: #fff;
