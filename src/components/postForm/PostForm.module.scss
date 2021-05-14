@@ -1,8 +1,10 @@
-@import './../../styles/colors.scss';
+@import '../../styles/colors.scss';
 
 .form {
     position: relative;
-    margin-top: 10px;
+    background-color: $second-color;
+    padding: 0 15px 15px 15px;
+    border-radius: 0 0 10px 10px;
 
     textarea {
         width: 100%;
@@ -13,11 +15,10 @@
 
     button {
         position: absolute;
-        right: 10px;
-        top: 50%;
+        right: 25px;
+        top: 9px;
         margin-left: 10px;
         color: #fff;
-        transform: translateY(-50%);
         background-color: $main-color;
         border-radius: 15px;
         font-size: 15px;

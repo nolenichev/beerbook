@@ -26,6 +26,8 @@
 
         p {
             color: $light-gray;
+            max-width: 400px;
+            overflow-wrap: break-word;
         }
     }
 

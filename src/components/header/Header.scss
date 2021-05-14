@@ -6,6 +6,10 @@
     width: 100%;
     background-color: $main-color;
     z-index: 2;
+
+    img {
+        height: 25px;
+    }
     
     > div {
         max-width: 1030px;

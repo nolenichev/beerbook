@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './UserItem.module.scss'
 import noAvatar from '../../images/noavatar.png'
+import { NavLink } from 'react-router-dom'
 
 const UserItem = (props) => {
 	let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -16,16 +17,21 @@ const UserItem = (props) => {
 				const avatar = (photo) => {
 					return photo ? photo : noAvatar
 				}
+				const userId = `/profile/id${user.id}`
 
 				return (
 					<div key={user.id} className={style.userItem}>
 						<div className={style.leftSide}>
-							<img
-								src={avatar(user.photos.small)}
-								alt="User avatar"
-							/>
+							<NavLink to={userId}>
+								<img
+									src={avatar(user.photos.small)}
+									alt="User avatar"
+								/>
+							</NavLink>
 							<div>
-								<h2>{user.name}</h2>
+								<NavLink to={userId}>
+									<h2>{user.name}</h2>
+								</NavLink>
 								<p>{user.status}</p>
 							</div>
 						</div>

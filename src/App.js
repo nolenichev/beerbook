@@ -1,13 +1,13 @@
 import React from 'react'
 import { Header } from './components/header/Header'
 import { Navbar } from './components/navbar/Navbar'
-import { Profile } from './pages/profile/Profile'
 import { Dialogs } from './pages/dialogs/Dialogs'
 import { News } from './pages/news/News'
 import { Settings } from './pages/settings/Settings'
 import { Music } from './pages/music/Music'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Users from './pages/users/Users'
+import ProfileContainer from './pages/profile/ProfileContainer'
 
 function App(props) {
 	return (
@@ -17,7 +17,7 @@ function App(props) {
 				<Navbar />
 				<Route
 					path="/profile"
-					render={() => <Profile store={props.store} />}
+					render={() => <ProfileContainer store={props.store} />}
 				/>
 				<main className="main-section">
 					<Route path="/users" component={Users} />
