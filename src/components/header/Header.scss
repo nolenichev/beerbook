@@ -20,7 +20,7 @@
         display: flex;
         
         div,
-        button {
+        a {
             color: #fff;
             font-size: 20px;
             padding: 15px;
@@ -30,9 +30,11 @@
             }
         }
 
-        button {
+        a {
             font-size: 15px;
             height: 54px;
+            display: flex;
+            align-items: center;
         }
 
         div {
@@ -43,7 +45,7 @@
         }
     }
 
-    button:hover {
+    a:hover {
         background-color: rgba($color: #000000, $alpha: .1);
     }
 }

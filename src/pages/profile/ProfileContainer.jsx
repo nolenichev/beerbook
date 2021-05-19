@@ -25,11 +25,9 @@ export class ProfileContainer extends Component {
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {
-		profile: state.profilePage.profile,
-	}
-}
+const mapStateToProps = (state) => ({
+	profile: state.profilePage.profile,
+})
 
 const mapDispatchToProps = {
 	setUserProfile,

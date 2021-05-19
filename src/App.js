@@ -1,5 +1,4 @@
 import React from 'react'
-import { Header } from './components/header/Header'
 import { Navbar } from './components/navbar/Navbar'
 import { Dialogs } from './pages/dialogs/Dialogs'
 import { News } from './pages/news/News'
@@ -8,11 +7,12 @@ import { Music } from './pages/music/Music'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Users from './pages/users/Users'
 import ProfileContainer from './pages/profile/ProfileContainer'
+import HeaderContainer from './components/header/HeaderContainer'
 
 function App(props) {
 	return (
 		<BrowserRouter>
-			<Header />
+			<HeaderContainer />
 			<div className="container mt10">
 				<Navbar />
 				<Route
