@@ -16,7 +16,7 @@ function App(props) {
 			<div className="container mt10">
 				<Navbar />
 				<Route
-					path="/profile"
+					path="/profile/:userId?"
 					render={() => <ProfileContainer store={props.store} />}
 				/>
 				<main className="main-section">

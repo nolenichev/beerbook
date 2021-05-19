@@ -1,5 +1,5 @@
 import React from 'react'
-// import noavatar from '../../images/noavatar.png'
+import noavatar from '../../images/noavatar.png'
 import Loader from '../loader/Loader'
 
 const ProfileInfo = (props) => {
@@ -9,7 +9,7 @@ const ProfileInfo = (props) => {
 
 	return (
 		<header>
-			<img src={props.profile.photos.large} alt="User avatar" />
+			<img src={props.profile.photos.large ? props.profile.photos.large : noavatar} alt="User avatar" />
 			<div>
 				<h1>{props.profile.fullName}</h1>
 				<p>{props.profile.aboutMe}</p>

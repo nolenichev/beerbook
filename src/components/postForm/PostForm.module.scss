@@ -3,8 +3,9 @@
 .form {
     position: relative;
     background-color: $second-color;
-    padding: 0 15px 15px 15px;
-    border-radius: 0 0 10px 10px;
+    margin-top: -15px;
+    padding: 15px;
+    border-radius: 10px;
 
     textarea {
         width: 100%;
@@ -16,7 +17,8 @@
     button {
         position: absolute;
         right: 25px;
-        top: 9px;
+        top: 50%;
+        transform: translateY(-50%);
         margin-left: 10px;
         color: #fff;
         background-color: $main-color;
