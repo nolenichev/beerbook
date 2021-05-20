@@ -11,19 +11,19 @@ import {
 import * as axios from 'axios'
 import UserItem from './UserItem'
 import Loader from '../loader/Loader'
+import { getUsers } from '../../api/api'
 
 class UsersContainer extends React.Component {
 	componentDidMount() {
 		this.props.toggleLoader(true)
-		axios
-			.get(
-				`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`
-			)
-			.then((response) => {
-				this.props.toggleLoader(false)
-				this.props.setUsers(response.data.items)
-				this.props.setTotalUsersCount(response.data.totalCount)
-			})
+
+		getUsers(this.props.currentPage, this.props.pageSize).then((response) => {
+			console.log(this.props.users)
+			this.props.toggleLoader(false)
+			this.props.setUsers(response.data.items)
+			console.log(this.props.users)
+			this.props.setTotalUsersCount(response.data.totalCount)
+		})
 	}
 
 	onPageChanged = (pageNumber) => {
@@ -31,7 +31,8 @@ class UsersContainer extends React.Component {
 		this.props.toggleLoader(true)
 		axios
 			.get(
-				`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`
+				`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`,
+				{ withCredentials: true }
 			)
 			.then((response) => {
 				this.props.toggleLoader(false)
