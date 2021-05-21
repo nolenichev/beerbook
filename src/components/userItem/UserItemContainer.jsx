@@ -7,36 +7,26 @@ import {
 	setCurrentPage,
 	setTotalUsersCount,
 	toggleLoader,
+	toggleFollowingProgress,
+	getUsers
 } from '../../redux/usersReducer'
-import * as axios from 'axios'
 import UserItem from './UserItem'
 import Loader from '../loader/Loader'
-import { getUsers } from '../../api/api'
+import { userAPI } from '../../api/api'
 
 class UsersContainer extends React.Component {
 	componentDidMount() {
-		this.props.toggleLoader(true)
-
-		getUsers(this.props.currentPage, this.props.pageSize).then((response) => {
-			console.log(this.props.users)
-			this.props.toggleLoader(false)
-			this.props.setUsers(response.data.items)
-			console.log(this.props.users)
-			this.props.setTotalUsersCount(response.data.totalCount)
-		})
+		this.props.getUsers(this.props.currentPage, this.props.pageSize)
 	}
 
 	onPageChanged = (pageNumber) => {
 		this.props.setCurrentPage(pageNumber)
 		this.props.toggleLoader(true)
-		axios
-			.get(
-				`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${pageNumber}`,
-				{ withCredentials: true }
-			)
-			.then((response) => {
+		userAPI
+			.getUsers(this.props.currentPage, this.props.pageSize)
+			.then((data) => {
 				this.props.toggleLoader(false)
-				this.props.setUsers(response.data.items)
+				this.props.setUsers(data.items)
 			})
 	}
 
@@ -62,6 +52,8 @@ class UsersContainer extends React.Component {
 					unfollow={this.props.unfollow}
 					follow={this.props.follow}
 					isFetching={this.props.isFetching}
+					toggleFollowingProgress={this.props.toggleFollowingProgress}
+					isFollowingProgress={this.props.isFollowingProgress}
 				/>
 			</>
 		)
@@ -74,6 +66,7 @@ const mapStateToProps = (state) => ({
 	totalUsersCount: state.usersPage.totalUsersCount,
 	currentPage: state.usersPage.currentPage,
 	isFetching: state.usersPage.isFetching,
+	isFollowingProgress: state.usersPage.isFollowingProgress,
 })
 
 const mapDispatchToProps = {
@@ -83,6 +76,8 @@ const mapDispatchToProps = {
 	setCurrentPage,
 	setTotalUsersCount,
 	toggleLoader,
+	toggleFollowingProgress,
+	getUsers
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer)

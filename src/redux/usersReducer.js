@@ -1,16 +1,20 @@
+import { userAPI } from '../api/api'
+
 const FOLLOW = 'FOLLOW'
 const UNFOLLOW = 'UNFOLLOW'
 const SET_USERS = 'SET_USERS'
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE'
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT'
 const TOGGLE_LOADER = 'TOGGLE_LOADER'
+const TOGGLE_FOLLOWING_PROGRESS = 'TOGGLE_FOLLOWING_PROGRESS'
 
 let initialState = {
 	users: [],
-	pageSize: 40,
+	pageSize: 30,
 	totalUsersCount: 0,
 	currentPage: 1,
 	isFetching: false,
+	isFollowingProgress: [],
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -20,7 +24,7 @@ const usersReducer = (state = initialState, action) => {
 				...state,
 				users: state.users.map((user) => {
 					if (user.id === action.userId) {
-						return { ...user, isFollowed: true }
+						return { ...user, followed: true }
 					}
 					return user
 				}),
@@ -31,7 +35,7 @@ const usersReducer = (state = initialState, action) => {
 				...state,
 				users: state.users.map((user) => {
 					if (user.id === action.userId) {
-						return { ...user, isFollowed: false }
+						return { ...user, followed: false }
 					}
 					return user
 				}),
@@ -48,6 +52,16 @@ const usersReducer = (state = initialState, action) => {
 
 		case TOGGLE_LOADER:
 			return { ...state, isFetching: action.isFetching }
+
+		case TOGGLE_FOLLOWING_PROGRESS:
+			return {
+				...state,
+				isFollowingProgress: action.isFetching
+					? [...action.isFollowingProgress, action.userId]
+					: action.isFollowingProgress.filter(
+							(id) => id !== action.userId
+					  ),
+			}
 
 		default:
 			return state
@@ -69,5 +83,19 @@ export const toggleLoader = (isFetching) => ({
 	type: TOGGLE_LOADER,
 	isFetching,
 })
+export const toggleFollowingProgress = (isFetching, userId) => ({
+	type: TOGGLE_FOLLOWING_PROGRESS,
+	isFetching,
+	userId,
+})
+export const getUsers = (currentPage, pageSize) => (dispatch) => {
+	dispatch(toggleLoader(true))
+
+	userAPI.getUsers(currentPage, pageSize).then((data) => {
+		dispatch(toggleLoader(false))
+		dispatch(setUsers(data.items))
+		dispatch(setTotalUsersCount(data.totalCount))
+	})
+}
 
 export default usersReducer
