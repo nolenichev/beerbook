@@ -2,7 +2,6 @@ import React from 'react'
 import style from './UserItem.module.scss'
 import noAvatar from '../../images/noavatar.png'
 import { NavLink } from 'react-router-dom'
-import { userAPI } from '../../api/api'
 
 const UserItem = (props) => {
 	let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
@@ -12,7 +11,6 @@ const UserItem = (props) => {
 		pages.push(index)
 	}
 
-
 	return (
 		<>
 			{props.users.map((user) => {
@@ -20,7 +18,6 @@ const UserItem = (props) => {
 					return photo ? photo : noAvatar
 				}
 				const userId = `/profile/${user.id}`
-				console.log(props.isFetching)
 
 				return (
 					<div key={user.id} className={style.userItem}>
@@ -42,54 +39,22 @@ const UserItem = (props) => {
 							{user.followed ? (
 								<button
 									className={style.unfollowBtn}
-									disabled={
-										(props.isFollowingProgress.some(
-											(id) => id === user.id
-										),
-										user.id)
-									}
+									disabled={props.followingInProgress.some(
+										(id) => id === user.id
+									)}
 									onClick={() => {
-										props.toggleFollowingProgress(
-											true,
-											user.id
-										)
-										userAPI
-											.unfollow(user.id)
-											.then((data) => {
-												if (data.resultCode === 0) {
-													props.unfollow(user.id)
-												}
-												props.toggleFollowingProgress(
-													false,
-													user.id
-												)
-											})
+										props.unfollow(user.id)
 									}}
 								>
 									Unfollow
 								</button>
 							) : (
 								<button
-									disabled={
-										(props.isFollowingProgress.some(
-											(id) => id === user.id
-										),
-										user.id)
-									}
+									disabled={props.followingInProgress.some(
+										(id) => id === user.id
+									)}
 									onClick={() => {
-										props.toggleFollowingProgress(
-											true,
-											user.id
-										)
-										userAPI.follow(user.id).then((data) => {
-											if (data.resultCode === 0) {
-												props.follow(user.id)
-											}
-											props.toggleFollowingProgress(
-												false,
-												user.id
-											)
-										})
+										props.follow(user.id)
 									}}
 								>
 									Follow

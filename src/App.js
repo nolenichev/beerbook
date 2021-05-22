@@ -8,6 +8,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import Users from './pages/users/Users'
 import ProfileContainer from './pages/profile/ProfileContainer'
 import HeaderContainer from './components/header/HeaderContainer'
+import Login from './pages/login/Login'
 
 function App(props) {
 	return (
@@ -15,6 +16,7 @@ function App(props) {
 			<HeaderContainer />
 			<div className="container mt10">
 				<Navbar />
+				<Route path="/login" component={Login} />
 				<Route
 					path="/profile/:userId?"
 					render={() => <ProfileContainer store={props.store} />}

@@ -1,6 +1,7 @@
 import React from 'react'
 import style from './Dialog.module.scss'
 import { Message } from './../message/Message'
+import { Redirect } from 'react-router'
 
 const MIN_TEXTAREA_HEIGHT = 30
 
@@ -12,10 +13,12 @@ const Dialog = (props) => {
 	let newMessageElement = React.createRef()
 
 	React.useLayoutEffect(() => {
-		newMessageElement.current.style.height = `${Math.max(
-			newMessageElement.current.scrollHeight,
-			MIN_TEXTAREA_HEIGHT
-		)}px`
+		if (newMessageElement.current) {
+			newMessageElement.current.style.height = `${Math.max(
+				newMessageElement.current.scrollHeight,
+				MIN_TEXTAREA_HEIGHT
+			)}px`
+		}
 	})
 
 	let updateNewMessage = (event) => {
@@ -27,6 +30,8 @@ const Dialog = (props) => {
 		props.sendMessage()
 		newMessageElement.current.style.height = 0
 	}
+
+	if (!props.isAuth) return <Redirect to="/login" />
 
 	return (
 		<div className={style.dialogWindow}>
