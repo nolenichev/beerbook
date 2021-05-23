@@ -1,6 +1,6 @@
 import * as axios from 'axios'
 
-const instanse = axios.create({
+const instance = axios.create({
 	withCredentials: true,
 	baseURL: 'https://social-network.samuraijs.com/api/1.0/',
 	headers: {
@@ -10,26 +10,38 @@ const instanse = axios.create({
 
 export const userAPI = {
 	getUsers: (currentPage, pageSize) => {
-		return instanse
+		return instance
 			.get(`users?page=${currentPage}&count=${pageSize}`)
 			.then((response) => response.data)
 	},
 
 	follow(id) {
-		return instanse.post(`follow/${id}`).then((response) => response.data)
+		return instance.post(`follow/${id}`).then((response) => response.data)
 	},
 
 	unfollow(id) {
-		return instanse.delete(`follow/${id}`).then((response) => response.data)
+		return instance.delete(`follow/${id}`).then((response) => response.data)
 	},
-
 	getProfile(id) {
-		return instanse.get(`profile/${id}`).then((response) => response.data)
+		console.warn('Obsolete method, use profileAPI.getProfile()')
+		return profileAPI.getProfile(id)
+	},
+}
+
+export const profileAPI = {
+	getProfile(id) {
+		return instance.get(`profile/${id}`).then((response) => response.data)
+	},
+	getStatus(id) {
+		return instance.get(`profile/status/${id}`).then((response) => response.data)
+	},
+	uptadeStatus(status) {
+		return instance.put(`profile/status`).then((response) => response.data)
 	},
 }
 
 export const authAPI = {
 	authMe() {
-		return instanse.get('/auth/me').then((response) => response.data)
+		return instance.get('/auth/me').then((response) => response.data)
 	},
 }

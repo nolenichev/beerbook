@@ -20,9 +20,19 @@
             font: 22px bold;
         }
 
-        p {
+        p, input {
             margin-top: 10px;
+            border-radius: 0;
+            padding: 5px 0;
+        }
+
+        p {
             color: $light-gray;
+            cursor: pointer;
+
+            &:hover {
+                background-color: $dark-gray;
+            }
         }
     }
 
