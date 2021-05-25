@@ -3,6 +3,7 @@ import React from 'react'
 class ProfileStatus extends React.Component {
 	state = {
 		editMode: false,
+		status: this.props.status,
 	}
 
 	editModeOn = () => {
@@ -15,6 +16,21 @@ class ProfileStatus extends React.Component {
 		this.setState({
 			editMode: false,
 		})
+		this.props.updateStatus(this.state.status)
+	}
+
+	onStatusChange = (e) => {
+		this.setState({
+			status: e.currentTarget.value,
+		})
+	}
+
+	componentDidUpdate(prevProps, prevState) {
+		if (prevProps.status !== this.props.status) {
+			this.setState({
+				status: this.props.status,
+			})
+		}
 	}
 
 	render() {
@@ -23,13 +39,15 @@ class ProfileStatus extends React.Component {
 				{this.state.editMode ? (
 					<input
 						type="text"
-						value={this.props.status}
+						value={this.state.status}
 						onBlur={this.editModeOff}
+						onChange={this.onStatusChange}
+						onSubmit={this.editModeOff}
 						autoFocus={true}
 					/>
 				) : (
 					<p onClick={this.editModeOn}>
-						{this.props.status}
+						{this.props.status || 'Write your new status...'}
 					</p>
 				)}
 			</>

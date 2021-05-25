@@ -17,13 +17,15 @@
         }
         
         h1 {
-            font: 22px bold;
+            font-size: 27px;
+            font-weight: bold;
         }
 
         p, input {
             margin-top: 10px;
             border-radius: 0;
             padding: 5px 0;
+            height: 25px;
         }
 
         p {
