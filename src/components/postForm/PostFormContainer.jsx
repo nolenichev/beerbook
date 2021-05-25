@@ -1,8 +1,5 @@
 import PostForm from './PostForm'
-import {
-	addPost,
-	updateNewPostText,
-} from '../../redux/profileReducer'
+import { addPost } from '../../redux/profileReducer'
 import { connect } from 'react-redux'
 
 const mapStateToProps = (state) => {
@@ -11,9 +8,8 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps =  {
+const mapDispatchToProps = {
 	addPost,
-	updateNewPostText,
 }
 
 const PostFormContainer = connect(mapStateToProps, mapDispatchToProps)(PostForm)

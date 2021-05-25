@@ -30,13 +30,24 @@ body {
     margin-top: 10px;
 }
 
+.mt20 {
+    margin-top: 20px;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.mb20 {
+    margin-bottom: 20px;
+}
+
 input, textarea {
     background-color: $dark-gray;
     border: none;
     color: #fff;
     border-radius: 1em;
     padding: 5px 15px;
-    width: 100%;
 }
 
 h1 {
@@ -47,6 +58,17 @@ h1 {
 h2 {
     font-size: 22px;
     font-weight: bold;
+}
+
+.btn {
+    background-color: $main-color;
+    color: #fff;
+    border-radius: 5px;
+    padding: 7px 15px;
+    
+    &:hover {
+        background-color: $main-color-dark;
+    }
 }
 
 ::placeholder {

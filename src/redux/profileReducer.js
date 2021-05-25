@@ -1,7 +1,6 @@
 import { profileAPI } from '../api/api'
 
 const ADD_POST = 'ADD-POST',
-	UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT',
 	SET_USER_PROFILE = 'SET_USER_PROFILE',
 	SET_USER_STATUS = 'SET_USER_STATUS'
 
@@ -18,7 +17,7 @@ let initialState = {
 			id: 2,
 			name: 'Nikita',
 			img: 'https://s23527.pcdn.co/wp-content/uploads/2019/12/Downside-Up-745x449.jpg.optimal.jpg',
-			text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum corrupti eligendi doloribus minus explicabo ad voluptatibus ab officia quidem dolor eius vitae, nisi voluptas, impedit beatae facilis. Omnis, delectus mollitia?',
+			text: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit',
 			likesCount: 5,
 		},
 		{
@@ -29,22 +28,16 @@ let initialState = {
 			likesCount: 5,
 		},
 	],
-	newPostText: '',
 	profile: null,
-	status: '',
 }
 
 const profileReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case UPDATE_NEW_POST_TEXT:
-			return { ...state, newPostText: action.text }
-
 		case ADD_POST:
-			let postText = state.newPostText
+			let postText = action.postText
 			if (postText.length > 0) {
 				return {
 					...state,
-					newPostText: '',
 					posts: [
 						...state.posts,
 						{
@@ -70,15 +63,6 @@ const profileReducer = (state = initialState, action) => {
 	}
 }
 
-export const addPost = () => ({
-	type: ADD_POST,
-})
-
-export const updateNewPostText = (text) => ({
-	type: UPDATE_NEW_POST_TEXT,
-	text,
-})
-
 const setUserProfile = (profile) => ({
 	type: SET_USER_PROFILE,
 	profile,
@@ -87,6 +71,11 @@ const setUserProfile = (profile) => ({
 const setUserStatus = (status) => ({
 	type: SET_USER_STATUS,
 	status,
+})
+
+export const addPost = (postText) => ({
+	type: ADD_POST,
+	postText,
 })
 
 export const getProfile = (profile) => (dispatch) => {

@@ -1,33 +1,24 @@
 import React from 'react'
+import { Field, reduxForm } from 'redux-form'
 import style from './PostForm.module.scss'
 
 const PostForm = (props) => {
-	let newPostElement = React.createRef()
-
-	let onAddPost = () => {
-		props.addPost()
-	}
-
-	const onPostChange = () => {
-		let text = newPostElement.current.value
-		props.updateNewPostText(text)
-	}
-
 	return (
-		<div className={style.form}>
-			<textarea
+		<form className={style.form} onSubmit={props.handleSubmit}>
+			<Field
+				name="postField"
 				cols="30"
 				rows="2"
+				component="textarea"
 				placeholder="What's new?"
-				ref={newPostElement}
-				value={props.state.newPostText}
-				onChange={onPostChange}
 			/>
-			<button onClick={onAddPost} type="submit">
-				Post
-			</button>
-		</div>
+			<button>Post</button>
+		</form>
 	)
 }
 
-export default PostForm
+const ReduxPostForm = reduxForm({
+	form: 'post',
+})(PostForm)
+
+export default ReduxPostForm
