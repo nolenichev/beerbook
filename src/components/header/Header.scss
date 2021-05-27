@@ -10,7 +10,7 @@
     img {
         height: 25px;
     }
-    
+
     > div {
         max-width: 1030px;
         padding: 0 15px;
@@ -18,18 +18,20 @@
         justify-content: space-between;
         align-items: center;
         display: flex;
-        
+
         div,
-        a {
+        a,
+        button {
             color: #fff;
-            font-size: 20px;
             padding: 15px;
-            
+
             span {
+                font-size: 20px;
                 margin-left: 10px;
             }
         }
 
+        button,
         a {
             font-size: 15px;
             height: 54px;
@@ -45,7 +47,8 @@
         }
     }
 
+    button:hover,
     a:hover {
-        background-color: rgba($color: #000000, $alpha: .1);
+        background-color: rgba($color: #000000, $alpha: 0.1);
     }
 }

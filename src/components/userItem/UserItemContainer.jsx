@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { follow, unfollow, getUsers } from '../../redux/usersReducer'
 import UserItem from './UserItem'
 import Loader from '../common/loader/Loader'
-// import { withAuthRedirect } from '../../hoc/withAuthRedirect'
+import { withAuthRedirect } from '../../hoc/withAuthRedirect'
 import { compose } from 'redux'
 
 class UsersContainer extends React.Component {
@@ -61,5 +61,5 @@ const mapDispatchToProps = {
 
 export default compose(
 	connect(mapStateToProps, mapDispatchToProps),
-	// withAuthRedirect
+	withAuthRedirect
 )(UsersContainer)

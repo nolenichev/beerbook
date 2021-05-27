@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import { compose } from 'redux'
-// import { withAuthRedirect } from '../../hoc/withAuthRedirect'
+import { withAuthRedirect } from '../../hoc/withAuthRedirect'
 import {
 	getProfile,
 	getStatus,
@@ -49,6 +49,6 @@ const mapDispatchToProps = {
 
 export default compose(
 	connect(mapStateToProps, mapDispatchToProps),
-	withRouter
-	// withAuthRedirect
+	withRouter,
+	withAuthRedirect
 )(ProfileContainer)

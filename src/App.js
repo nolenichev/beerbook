@@ -14,7 +14,7 @@ function App(props) {
 	return (
 		<BrowserRouter>
 			<HeaderContainer />
-			<div className="container mt10">
+			<div className="container">
 				<Navbar />
 				<Route
 					path="/profile/:userId?"
