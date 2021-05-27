@@ -1,6 +1,6 @@
 import React from 'react'
 import noavatar from '../../images/noavatar.png'
-import Loader from '../loader/Loader'
+import Loader from '../common/loader/Loader'
 import ProfileStatus from './ProfileStatus'
 
 const ProfileInfo = (props) => {

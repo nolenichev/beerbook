@@ -34,23 +34,19 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_POST:
-			let postText = action.postText
-			if (postText.length > 0) {
-				return {
-					...state,
-					posts: [
-						...state.posts,
-						{
-							id: 4,
-							name: 'Nikita',
-							img: null,
-							text: postText,
-							likesCount: 0,
-						},
-					],
-				}
+			return {
+				...state,
+				posts: [
+					...state.posts,
+					{
+						id: 4,
+						name: 'Nikita',
+						img: null,
+						text: action.postText,
+						likesCount: 0,
+					},
+				],
 			}
-			return state
 
 		case SET_USER_STATUS:
 			return { ...state, status: action.status }

@@ -1,6 +1,8 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import { authAPI } from '../../api/api'
+import { Input } from '../../components/common/Textarea/Textarea'
+import { required } from '../../utils/validatiors'
 import style from './Login.module.scss'
 
 const LoginForm = (props) => {
@@ -9,19 +11,21 @@ const LoginForm = (props) => {
 			<label>
 				<h3>E-mail</h3>
 				<Field
-					component="input"
+					component={Input}
 					type="text"
 					placeholder="expample@gmail.com"
 					name="email"
+					validate={[required]}
 				/>
 			</label>
 			<label>
 				<h3>Password</h3>
 				<Field
-					component="input"
+					component={Input}
 					type="password"
 					placeholder="Your password"
 					name="password"
+					validate={[required]}
 				/>
 			</label>
 			<label className={style.checkbox}>
