@@ -13,7 +13,10 @@ const Navbar = (props) => {
 	return (
 		<IconContext.Provider value={{ size: '0.75em' }}>
 			<nav className={style.navbar}>
-				<NavLink to={`id${userId}`} activeClassName={style.active}>
+				<NavLink
+					to={props.isAuth ? `id${userId}` : '/login'}
+					activeClassName={style.active}
+				>
 					<FaUserAlt />
 					<span>My profile</span>
 				</NavLink>
@@ -44,6 +47,7 @@ const Navbar = (props) => {
 
 const mapStateToProps = (state) => ({
 	id: state.auth.id,
+	isAuth: state.auth.isAuth,
 })
 
 export default connect(mapStateToProps)(Navbar)

@@ -11,7 +11,7 @@ const Login = (props) => {
 	}
 
 	if (props.isAuth) {
-		return <Redirect to="/profile" />
+		return <Redirect to={`id${props.id}`} />
 	} else {
 		return (
 			<div className={style.loginForm}>
@@ -24,6 +24,7 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => ({
 	isAuth: state.auth.isAuth,
+	id: state.auth.id,
 })
 
 const mapDispatchToProps = {
