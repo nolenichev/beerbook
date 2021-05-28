@@ -17,7 +17,7 @@ const UserItem = (props) => {
 				const avatar = (photo) => {
 					return photo ? photo : noAvatar
 				}
-				const userId = `/profile/${user.id}`
+				const userId = `/id${user.id}`
 
 				return (
 					<div key={user.id} className={style.userItem}>
