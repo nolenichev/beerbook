@@ -1,58 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-class ProfileStatus extends React.Component {
-	state = {
-		editMode: false,
-		status: this.props.status,
-	}
+const ProfileStatus = (props) => {
+	const [editMode, setEditMode] = useState(false)
+	const [status, setStatus] = useState(props.status)
 
-	editModeOn = () => {
-		this.setState({
-			editMode: true,
-		})
+	const activateEditMode = () => setEditMode(true)
+	const deactivateEditMode = () => {
+		setEditMode(false)
+		props.updateStatus(status)
 	}
+	const onStatusChange = (e) => setStatus(e.currentTarget.value)
 
-	editModeOff = () => {
-		this.setState({
-			editMode: false,
-		})
-		this.props.updateStatus(this.state.status)
-	}
-
-	onStatusChange = (e) => {
-		this.setState({
-			status: e.currentTarget.value,
-		})
-	}
-
-	componentDidUpdate(prevProps, prevState) {
-		if (prevProps.status !== this.props.status) {
-			this.setState({
-				status: this.props.status,
-			})
-		}
-	}
-
-	render() {
-		return (
-			<>
-				{this.state.editMode ? (
-					<input
-						type="text"
-						value={this.state.status}
-						onBlur={this.editModeOff}
-						onChange={this.onStatusChange}
-						onSubmit={this.editModeOff}
-						autoFocus={true}
-					/>
-				) : (
-					<p onClick={this.editModeOn}>
-						{this.props.status || 'Write your new status...'}
-					</p>
-				)}
-			</>
-		)
-	}
+	return (
+		<>
+			{editMode ? (
+				<input
+					type="text"
+					value={status}
+					onBlur={deactivateEditMode}
+					onChange={onStatusChange}
+					onSubmit={deactivateEditMode}
+					autoFocus={true}
+				/>
+			) : (
+				<p onClick={activateEditMode}>
+					{status || 'Write your new status...'}
+				</p>
+			)}
+		</>
+	)
 }
 
 export default ProfileStatus

@@ -10,7 +10,7 @@ import {
 } from '../../redux/profileReducer'
 import { Profile } from './Profile'
 
-export class ProfileContainer extends Component {
+class ProfileContainer extends Component {
 	componentDidMount() {
 		let userId = this.props.match.params.userId
 		if (!userId) {
