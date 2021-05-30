@@ -59,7 +59,13 @@ const UserItem = (props) => {
 				)
 			})}
 
-			<Paginator props={props} />
+			<Paginator
+				totalItemsCount={props.totalUsersCount}
+				pageSize={props.pageSize}
+				currentPage={props.currentPage}
+				onPageChanged={props.onPageChanged}
+				portionSize={10}
+			/>
 		</>
 	)
 }
