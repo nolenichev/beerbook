@@ -1,6 +1,7 @@
+import React from 'react'
 import { Post } from '../post/Post'
 
-export const Posts = (props) => {
+export const Posts = React.memo((props) => {
 	let postsElements = props.store
 		.getState()
 		.profilePage.posts.map((post) => (
@@ -14,4 +15,4 @@ export const Posts = (props) => {
 		))
 
 	return <div className="posts">{postsElements}</div>
-}
+})

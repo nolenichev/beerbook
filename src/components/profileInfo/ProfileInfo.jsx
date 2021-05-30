@@ -3,7 +3,7 @@ import noavatar from '../../images/noavatar.png'
 import Loader from '../common/loader/Loader'
 import ProfileStatus from './ProfileStatus'
 
-const ProfileInfo = (props) => {
+const ProfileInfo = React.memo((props) => {
 	if (!props.profile) {
 		return <Loader />
 	}
@@ -27,6 +27,6 @@ const ProfileInfo = (props) => {
 			</div>
 		</header>
 	)
-}
+})
 
 export default ProfileInfo

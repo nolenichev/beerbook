@@ -6,12 +6,12 @@ import App from './App'
 import store from './redux/reduxStore'
 import { Provider } from 'react-redux'
 
-let rerenderEntireTree = () => {
+let rerenderEntireTree = (state) => {
 	ReactDOM.render(
 		<Provider store={store}>
 			<App
 				store={store}
-				state={store.getState()}
+				state={state}
 				dispatch={store.dispatch.bind(store)}
 			/>
 		</Provider>,

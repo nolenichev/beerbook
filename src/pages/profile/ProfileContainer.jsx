@@ -1,16 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import { compose } from 'redux'
 import {
-	getProfile,
+	addPost, getProfile,
 	getStatus,
-	updateStatus,
-	addPost,
+	updateStatus
 } from '../../redux/profileReducer'
 import { Profile } from './Profile'
 
-class ProfileContainer extends Component {
+class ProfileContainer extends React.PureComponent {
 	componentDidMount() {
 		let userId = this.props.match.params.userId
 		if (!userId) {
