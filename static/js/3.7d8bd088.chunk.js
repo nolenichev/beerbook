@@ -1,0 +1,2 @@
+(this["webpackJsonpmy-social-web"]=this["webpackJsonpmy-social-web"]||[]).push([[3],{293:function(e,s,c){"use strict";c.r(s);c(2);var a=c(1);s.default=function(){return Object(a.jsx)("div",{children:Object(a.jsx)("header",{className:"pageHeader",children:Object(a.jsx)("h2",{children:"News"})})})}}}]);
+//# sourceMappingURL=3.7d8bd088.chunk.js.map
