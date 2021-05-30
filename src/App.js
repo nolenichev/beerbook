@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from './components/navbar/Navbar'
 import { Dialogs } from './pages/dialogs/Dialogs'
-import { News } from './pages/news/News'
 import { Settings } from './pages/settings/Settings'
 import { Music } from './pages/music/Music'
 import { BrowserRouter, Route } from 'react-router-dom'
@@ -12,6 +11,9 @@ import Login from './pages/login/Login'
 import { connect } from 'react-redux'
 import { initializeApp } from './redux/appReducer'
 import Loader from './components/common/loader/Loader'
+import withSuspense from './hoc/withSuspense'
+
+const News = React.lazy(() => import('./pages/news/News'))
 
 class App extends React.Component {
 	componentDidMount() {
@@ -22,7 +24,7 @@ class App extends React.Component {
 		if (!this.props.isInitalized) {
 			return <Loader />
 		}
-		
+
 		return (
 			<BrowserRouter>
 				<HeaderContainer />
@@ -41,7 +43,7 @@ class App extends React.Component {
 							path="/dialogs"
 							render={() => <Dialogs store={this.props.store} />}
 						/>
-						<Route path="/news" component={News} />
+						<Route path="/news" render={withSuspense(News)} />
 						<Route path="/music" component={Music} />
 						<Route path="/settings" component={Settings} />
 					</main>
