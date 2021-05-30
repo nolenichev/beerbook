@@ -1,16 +1,10 @@
+import { Paginator } from './../paginator/Paginator'
 import React from 'react'
 import style from './UserItem.module.scss'
 import noAvatar from '../../images/noavatar.png'
 import { NavLink } from 'react-router-dom'
 
 const UserItem = (props) => {
-	let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
-	let pages = []
-
-	for (let index = 1; index <= pagesCount; index++) {
-		pages.push(index)
-	}
-
 	return (
 		<>
 			{props.users.map((user) => {
@@ -65,21 +59,7 @@ const UserItem = (props) => {
 				)
 			})}
 
-			<div className={style.pagePagination}>
-				{pages.map((page) => (
-					<button
-						key={page}
-						className={
-							props.currentPage === page ? style.selectedPage : ''
-						}
-						onClick={() => {
-							props.onPageChanged(page)
-						}}
-					>
-						{page}
-					</button>
-				))}
-			</div>
+			<Paginator props={props} />
 		</>
 	)
 }

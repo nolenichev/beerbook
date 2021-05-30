@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import './styles/reset.min.css'
 import './styles/index.scss'
 import App from './App'
-import store from './redux/reduxStore'
+import store from './redux/store'
 import { Provider } from 'react-redux'
 
 let rerenderEntireTree = (state) => {

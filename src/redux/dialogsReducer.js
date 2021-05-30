@@ -3,7 +3,7 @@ import musk from './../images/avatars/musk.jpg'
 import putin from './../images/avatars/putin.jpeg'
 import trump from './../images/avatars/trump.webp'
 
-const SEND_MESSAGE = 'SEND-MESSAGE'
+const SEND_MESSAGE = 'dialogs/SEND-MESSAGE'
 
 let initialState = {
 	dialogs: [

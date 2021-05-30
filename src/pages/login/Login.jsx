@@ -5,13 +5,13 @@ import { login } from '../../redux/authReducer'
 import style from './Login.module.scss'
 import LoginForm from './LoginForm'
 
-const Login = (props) => {
+const Login = ({ login, id, isAuth }) => {
 	const onSubmit = (formData) => {
-		props.login(formData.email, formData.password, formData.rememberMe)
+		login(formData.email, formData.password, formData.rememberMe)
 	}
 
-	if (props.isAuth) {
-		return <Redirect to={`id${props.id}`} />
+	if (isAuth) {
+		return <Redirect to={`id${id}`} />
 	} else {
 		return (
 			<div className={style.loginForm}>

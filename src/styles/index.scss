@@ -74,6 +74,13 @@ h2 {
     }
 }
 
+.pageHeader {
+    position: sticky;
+    top: 0;
+    padding: 20px;
+    z-index: 2;
+}
+
 .errorInput {
     position: relative;
 
