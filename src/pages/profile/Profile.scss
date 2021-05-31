@@ -1,45 +1,137 @@
-.profile-page {
+.profilePage {
     header {
         border-radius: 10px 10px 0 0;
-        display: flex;
-        align-items: center;
         background-color: $second-color;
         color: #fff;
         padding: 20px;
         z-index: 2;
+        position: relative;
 
-        img {
-            height: 100px;
-            width: 100px;
-            object-fit: cover;
-            margin-right: 15px;
-            border-radius: 50%;
-        }
-        
-        h1 {
-            font-size: 27px;
-            font-weight: bold;
-        }
+        .shortInfo {
+            align-items: center;
+            display: flex;
 
-        p, input {
-            margin-top: 10px;
-            border-radius: 0;
-            padding: 5px 0;
-            height: 25px;
-        }
+            .uploadNewPhoto {
+                img:hover {
+                    opacity: 0.7;
+                    cursor: pointer;
+                }
 
-        p {
-            color: $light-gray;
-            cursor: pointer;
-
-            &:hover {
-                background-color: $dark-gray;
+                input[type="file"] {
+                    display: none;
+                }
             }
+
+            img {
+                height: 100px;
+                width: 100px;
+                object-fit: cover;
+                margin-right: 15px;
+                border-radius: 50%;
+            }
+
+            h1 {
+                font-size: 27px;
+                font-weight: bold;
+            }
+
+            p,
+            input {
+                margin-top: 10px;
+                border-radius: 0;
+                padding: 5px 0;
+                height: 25px;
+            }
+
+            p {
+                color: $light-gray;
+            }
+
+            .myStatus {
+                cursor: pointer;
+
+                &:hover {
+                    background-color: $dark-gray;
+                }
+            }
+        }
+
+        .detailInfo {
+            margin-top: 20px;
+            line-height: 1.4;
+
+            .infoLine {
+                b {
+                    font-weight: 600;
+                }
+
+                a {
+                    color: $light-gray;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            .infoLine + .infoLine {
+                margin-top: 10px;
+            }
+
+            label {
+                h4 {
+                    font-weight: 600;
+                    margin: 10px 0;
+                }
+
+                textarea,
+                input {
+                    resize: none;
+                    width: 300px;
+                }
+            }
+
+            .contactsInput {
+                input {
+                    margin-bottom: 10px;
+                }
+            }
+
+            .checkboxInput {
+                display: flex;
+                align-items: center;
+                margin-top: 10px;
+
+                h4 {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+
+    .profileEditBtn {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        padding: 5px;
+        color: #fff;
+        border-radius: 50%;
+        height: 30px;
+        font-size: 20px;
+        width: 30px;
+
+        &:hover {
+            background-color: $main-color;
         }
     }
 
     .posts {
         display: flex;
         flex-direction: column-reverse;
+    }
+
+    .errorMsg {
+        margin: 10px 0;
+        color: $red;
     }
 }

@@ -19,19 +19,25 @@ const ProfileStatus = (props) => {
 
 	return (
 		<>
-			{editMode ? (
-				<input
-					type="text"
-					value={status}
-					onBlur={deactivateEditMode}
-					onChange={onStatusChange}
-					onSubmit={deactivateEditMode}
-					autoFocus={true}
-				/>
+			{props.isOwner ? (
+				<>
+					{editMode ? (
+						<input
+							type="text"
+							value={status}
+							onBlur={deactivateEditMode}
+							onChange={onStatusChange}
+							onSubmit={deactivateEditMode}
+							autoFocus={true}
+						/>
+					) : (
+						<p onClick={activateEditMode} className="myStatus">
+							{status || 'Write your new status...'}
+						</p>
+					)}
+				</>
 			) : (
-				<p onClick={activateEditMode}>
-					{status || 'Write your new status...'}
-				</p>
+				<>{status ? <p>{status}</p> : null}</>
 			)}
 		</>
 	)

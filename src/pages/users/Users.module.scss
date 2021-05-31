@@ -8,21 +8,21 @@
     header {
         position: sticky;
         top: 0;
-        padding: 20px 0 10px 0;
+        padding: 20px 0;
         background-color: $second-color;
         z-index: 2;
         
         input {
             width: 100%;
             padding-right: 40px;
-            margin-bottom: 20px;
+            margin-top: 10px;
         }
 
         button {
             color: #fff;
             position: absolute;
             right: 5px;
-            top: 24px;
+            bottom: 21px;
         }
     }
 }

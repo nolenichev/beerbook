@@ -6,11 +6,11 @@ const Users = () => {
 	return (
 		<section className={style.usersPage}>
 			<header>
+                <h2>Users</h2>
 				<input type="text" placeholder="Search users" />
 				<button>
 					<BsSearch></BsSearch>
 				</button>
-                <h2>Users</h2>
 			</header>
 			<UserItemContainer />
 		</section>

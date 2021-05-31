@@ -3,14 +3,17 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import { compose } from 'redux'
 import {
-	addPost, getProfile,
+	addPost,
+	getProfile,
 	getStatus,
-	updateStatus
+	updateStatus,
+	savePhoto,
+	saveProfile,
 } from '../../redux/profileReducer'
 import { Profile } from './Profile'
 
 class ProfileContainer extends React.PureComponent {
-	componentDidMount() {
+	refreshProfile() {
 		let userId = this.props.match.params.userId
 		if (!userId) {
 			userId = this.props.autrizedUserId
@@ -18,6 +21,16 @@ class ProfileContainer extends React.PureComponent {
 
 		this.props.getProfile(userId)
 		this.props.getStatus(userId)
+	}
+
+	componentDidMount() {
+		this.refreshProfile()
+	}
+
+	componentDidUpdate(prevProps) {
+		if (this.props.match.params.userId !== prevProps.match.params.userId) {
+			this.refreshProfile()
+		}
 	}
 
 	render() {
@@ -28,6 +41,12 @@ class ProfileContainer extends React.PureComponent {
 				status={this.props.status}
 				updateStatus={this.props.updateStatus}
 				addPost={this.props.addPost}
+				isOwner={
+					Number(this.props.match.params.userId) ===
+					this.props.autrizedUserId
+				}
+				savePhoto={this.props.savePhoto}
+				safeProfile={this.props.saveProfile}
 			/>
 		)
 	}
@@ -45,6 +64,8 @@ const mapDispatchToProps = {
 	getStatus,
 	updateStatus,
 	addPost,
+	savePhoto,
+	saveProfile,
 }
 
 export default compose(

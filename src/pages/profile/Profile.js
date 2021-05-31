@@ -10,11 +10,14 @@ export const Profile = (props) => {
 	}
 
 	return (
-		<div className="profile-page">
+		<div className="profilePage">
 			<ProfileInfo
 				profile={props.profile}
 				status={props.status}
 				updateStatus={props.updateStatus}
+				isOwner={props.isOwner}
+				savePhoto={props.savePhoto}
+				saveProfile={props.saveProfile}
 			/>
 			<PostFormContainer onSubmit={addPost} />
 			<Posts {...props} />
