@@ -12,7 +12,6 @@ import { connect } from 'react-redux'
 import { initializeApp } from './redux/appReducer'
 import Loader from './components/common/loader/Loader'
 import withSuspense from './hoc/withSuspense'
-import { NotFoundPage } from './pages/notFoundPage/NotFoundPage'
 
 const News = React.lazy(() => import('./pages/news/News'))
 
@@ -48,7 +47,7 @@ class App extends React.Component {
 						<Route path="/news" render={withSuspense(News)} />
 						<Route path="/music" component={Music} />
 						<Route path="/settings" component={Settings} />
-						<Route path="*" component={NotFoundPage} />
+						{/* <Route path="*" component={NotFoundPage} /> */}
 					</main>
 				</div>
 			</BrowserRouter>

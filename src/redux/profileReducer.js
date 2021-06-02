@@ -112,10 +112,14 @@ export const getStatus = (userId) => async (dispatch) => {
 }
 
 export const updateStatus = (status) => async (dispatch) => {
-	const data = await profileAPI.updateStatus(status)
+	try {
+		const data = await profileAPI.updateStatus(status)
 
-	if (data.resultCode === 0) {
-		dispatch(setUserStatus(status))
+		if (data.resultCode === 0) {
+			dispatch(setUserStatus(status))
+		}
+	} catch (error) {
+		console.log(error)
 	}
 }
 
@@ -135,7 +139,7 @@ export const saveProfile = (profile) => async (dispatch, getState) => {
 		dispatch(getProfile(userId))
 	} else {
 		const errorMessage = data.messages.length > 0 ? data.messages[0] : ''
-		
+
 		dispatch(stopSubmit('profileInfoForm', { _error: errorMessage }))
 		return Promise.reject(errorMessage)
 	}
