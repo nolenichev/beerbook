@@ -65,12 +65,13 @@
                     font-weight: 600;
                 }
 
+                span,
                 a {
                     color: $light-gray;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
+                }
+                
+                a:hover {
+                    text-decoration: underline;
                 }
             }
 
