@@ -2,11 +2,15 @@ import { authMe } from './authReducer'
 
 const SET_INITIALIZED = 'app/SET_INITIALIZED'
 
-let initialState = {
+type InitialStateType = {
+	isInitalized: boolean
+}
+
+let initialState: InitialStateType = {
 	isInitalized: false,
 }
 
-const appReducer = (state = initialState, action) => {
+const appReducer = (state = initialState, action: any): InitialStateType => {
 	switch (action.type) {
 		case SET_INITIALIZED:
 			return { ...state, isInitalized: true }
@@ -16,11 +20,13 @@ const appReducer = (state = initialState, action) => {
 	}
 }
 
-const setInitialized = () => ({ type: SET_INITIALIZED })
+type SetInitializedType = { type: typeof SET_INITIALIZED }
 
-export const initializeApp = () => (dispatch) => {
+const setInitialized = (): SetInitializedType => ({ type: SET_INITIALIZED })
+
+export const initializeApp = () => (dispatch: any) => {
 	let promise = dispatch(authMe())
-	
+
 	Promise.all([promise]).then(() => {
 		dispatch(setInitialized())
 	})
