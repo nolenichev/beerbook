@@ -1,5 +1,4 @@
-import { Paginator } from './../paginator/Paginator'
-import React from 'react'
+import Paginator from './../paginator/Paginator'
 import style from './UserItem.module.scss'
 import noAvatar from '../../images/noavatar.png'
 import { NavLink } from 'react-router-dom'

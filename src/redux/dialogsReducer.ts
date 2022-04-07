@@ -1,6 +1,5 @@
 import jobs from './../images/avatars/jobs.png'
 import musk from './../images/avatars/musk.jpg'
-import putin from './../images/avatars/putin.jpeg'
 import trump from './../images/avatars/trump.webp'
 
 const SEND_MESSAGE = 'dialogs/SEND-MESSAGE'
@@ -21,8 +20,7 @@ let initialState = {
 	dialogs: [
 		{ id: 1, userId: 1, name: 'Elon Mask', avatar: musk },
 		{ id: 2, userId: 2, name: 'Donald Trump', avatar: trump },
-		{ id: 3, userId: 3, name: 'Vladimir Putin', avatar: putin },
-		{ id: 4, userId: 4, name: 'Steve Jobs', avatar: jobs },
+		{ id: 3, userId: 3, name: 'Steve Jobs', avatar: jobs },
 	] as Array<DialogType>,
 	messages: [
 		{ id: 1, message: 'Hi!' },
